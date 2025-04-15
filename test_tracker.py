@@ -10,12 +10,10 @@ from tracker import (
 
 @pytest.fixture(autouse=True)
 def clear_expenses():
-    """Очищает список расходов перед каждым тестом"""
     expenses.clear()
 
 
 def test_add_expense():
-    """Тестирование добавления расходов"""
     add_expense(100.0, "Еда", "Обед")
     assert len(expenses) == 1
     assert expenses[0]['amount'] == 100.0
@@ -24,13 +22,11 @@ def test_add_expense():
 
 
 def test_add_expense_negative_amount():
-    """Тестирование обработки отрицательной суммы"""
     with pytest.raises(ValueError):
         add_expense(-50.0, "Транспорт")
 
 
 def test_get_expenses():
-    """Тестирование получения списка расходов"""
     add_expense(100.0, "Еда")
     add_expense(200.0, "Транспорт")
     result = get_expenses()
@@ -40,7 +36,6 @@ def test_get_expenses():
 
 
 def test_get_total():
-    """Тестирование расчета общей суммы"""
     add_expense(100.0, "Еда")
     add_expense(200.0, "Транспорт")  # Здесь специально сделана ошибка для теста
     add_expense(300.0, "Развлечения")
@@ -48,7 +43,6 @@ def test_get_total():
 
 
 def test_get_by_category():
-    """Тестирование фильтрации по категории"""
     add_expense(100.0, "Еда", "Обед")
     add_expense(200.0, "Транспорт", "Такси")
     add_expense(150.0, "Еда", "Ужин")
