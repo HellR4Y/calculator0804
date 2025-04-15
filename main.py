@@ -29,7 +29,7 @@ def main():
                 print(f"Ошибка: {e}")
 
         elif choice == "2":
-            all_expenses = get_expenses()  # Здесь специально сделана ошибка для отладки
+            all_expenses = get_expenses()  # Здесь специально было сделана ошибка для отладки
             if not all_expenses:
                 print("Нет расходов для отображения")
             else:
